@@ -61,7 +61,7 @@ app.put("/produtos/:id", (req, res) => {
   res.setHeader("Access-Control-Allow-Origin", "*");
   res.header("Access-Control-Allow-Methods", "GET, PUT, POST, DELETE");
   return connect.execSQLQuery(
-    `UPDATE produtos set nome='${req.body.nome}', capacidade='${req.body.capacidade}', preco='${req.body.preco}', modelo='${req.body.modelo}' WHERE id='${req.params.id}'`,
+    `UPDATE produtos set nome='${req.body.nome}', capacidade='${req.body.capacidade}', preco='${req.body.preco}', modelo='${req.body.modelo}', uri='${req.body.uri}' WHERE id='${req.params.id}'`,
     res
   );
 });
@@ -70,7 +70,7 @@ app.post("/produtos/", (req, res) => {
   res.setHeader("Access-Control-Allow-Origin", "*");
   res.header("Access-Control-Allow-Methods", "GET, PUT, POST, DELETE");
   return connect.execSQLQuery(
-    "INSERT INTO produtos( nome, capacidade, preco, modelo) VALUES ( '" +
+    "INSERT INTO produtos( nome, capacidade, preco, modelo, uri) VALUES ( '" +
       req.body.nome +
       "', '" +
       req.body.capacidade +
@@ -78,6 +78,8 @@ app.post("/produtos/", (req, res) => {
       req.body.preco +
       "', '" +
       req.body.modelo +
+      "','" +
+      req.body.uri +
       "')",
     res
   );
