@@ -24,4 +24,5 @@ export interface IProps {
   samsung?: string;
   xiaomi?: string;
   poco?: string;
+  uri?: string;
 }

@@ -34,7 +34,7 @@ export const Home = (props: IProps) => {
       <Header
         backgroundColor="gray"
         placement="center"
-        centerComponent={{ text: "Lista de Produtos", style: { color: "#fff", fontSize: 24, fontWeight: "500" } }}
+        centerComponent={{ text: "Produtos", style: { color: "#fff", fontSize: 24, fontWeight: "500" } }}
         rightComponent={
           <Button
             icon={
@@ -45,10 +45,10 @@ export const Home = (props: IProps) => {
                 backgroundColor={"gray"}
                 color="white"
                 tvParallaxProperties={undefined}
+                onPress={addProduct}
               />
             }
-            style={{ backgroundColor: "gray" }}
-            onPress={addProduct}
+            buttonStyle={{ backgroundColor: "gray" }}
           />
         }
       />
@@ -78,7 +78,7 @@ export const Home = (props: IProps) => {
                 <Card.Image
                   style={{ padding: 0, resizeMode: "contain" }}
                   source={{
-                    uri: "https://media.istockphoto.com/id/1357365823/vector/default-image-icon-vector-missing-picture-page-for-website-design-or-mobile-app-no-photo.jpg?b=1&s=170667a&w=0&k=20&c=LEhQ7Gji4-gllQqp80hLpQsLHlHLw61DoiVf7XJsSx0=",
+                    uri: product?.uri,
                   }}
                   onPress={() => {
                     props.navigation.navigate("Editar", {
@@ -130,7 +130,6 @@ export const Home = (props: IProps) => {
 };
 
 const styles = StyleSheet.create({
-  img: {},
   container: {
     height: "100%",
   },
